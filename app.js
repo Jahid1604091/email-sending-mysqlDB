@@ -56,6 +56,7 @@ app.use(express.json());
 //     })
 // });
 
+//webgrafartdesign@gmail.com   mjsjiiyjjimcymah
 //DB Connect 
 app.use('/add-post', require('./routes/data'));
 
@@ -64,7 +65,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(4000, () => {
+app.listen(8000, () => {
     console.log('running.......');
 }
 )

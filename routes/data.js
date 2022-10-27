@@ -8,28 +8,28 @@ router.post('/', (req, res) => {
 
     const data = new Data(req.body)
 
-    data.save((err, d) => {
+    data.save(async(err, d) => {
         if (err) {
             return res.status(400).json({
                 message: 'Something went wrong!'
             })
         }
-        if (d) {
+        else {
             // sending mail
             const message = `Name : ${req.body.name} \n\nProject_Details:${req.body.project_brief}`
 
             try {
-                 sendEmail({
+                await sendEmail({
                     email: process.env.SMTP_EMAIL,
                     subject: 'Email Notification',
                     message
                 });
-                // res.status(200).json({ success: true, data: 'Email Sent' })
+                res.status(200).json({ success: true, data: 'Email Sent' })
             } catch (error) {
                 console.log(error);
             }
 
-            res.json('Post Added !');
+            // res.json('Post Added !');
         }
     })
 
