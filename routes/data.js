@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 
             try {
                  sendEmail({
-                    email: 'mjh409780@gmail.com',
+                    email: process.env.SMTP_EMAIL,
                     subject: 'Email Notification',
                     message
                 });
