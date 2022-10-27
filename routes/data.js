@@ -24,12 +24,12 @@ router.post('/', (req, res) => {
                     subject: 'Email Notification',
                     message
                 });
-                res.status(200).json({ success: true, data: 'Email Sent' })
+                // res.status(200).json({ success: true, data: 'Email Sent' })
             } catch (error) {
                 console.log(error);
             }
 
-            // res.json('Post Added !');
+            res.json('Post Added !');
         }
     })
 
